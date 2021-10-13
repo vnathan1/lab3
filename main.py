@@ -1,10 +1,15 @@
 import joystick
 import time
-a = 1
+
 address = 0x48
 analog = joystick.Joystick(address)
 
-while a > 0 :
-  x_value = getX()
-  y_value = getY()
-  print(x_value + ', ' + y_value)
+try:
+  while True:
+    x_value = analog.getX()
+    y_value = analog.getY()
+    print(x_value + ', ' + y_value)
+    time.sleep(0.1)
+
+except KeyboardInterrupt:
+  print("Exiting")
